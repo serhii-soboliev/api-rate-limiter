@@ -1,3 +1,5 @@
+![Build Status](https://github.com/serhii-soboliev/api-rate-limiter/actions/workflows/go.yml/badge.svg)
+
 # About project
 
 API Rate limiter service for demonstration purpose
