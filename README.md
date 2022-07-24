@@ -1,6 +1,7 @@
-![Build Status](https://github.com/serhii-soboliev/api-rate-limiter/actions/workflows/go.yml/badge.svg)
 
 # About project
+
+![Build Status](https://github.com/serhii-soboliev/api-rate-limiter/actions/workflows/go.yml/badge.svg)
 
 API Rate limiter service for demonstration purpose
 
@@ -8,7 +9,7 @@ API Rate limiter service for demonstration purpose
 
 # Prerequisites
 
-Install GoLang https://go.dev
+Install GoLang <https://go.dev>
 
 # How to run
 
