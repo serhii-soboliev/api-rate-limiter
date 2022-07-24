@@ -30,6 +30,7 @@ func GetResource(userId string) bool {
 			fixedWindowUsers[userId] = v
 			return true
 		} else {
+			fmt.Println(v)
 			return false
 		}	
 	} else {
