@@ -14,15 +14,15 @@ type FixedWindowUser struct {
 }
 
 var windowSize int64 = 60
+var allowedRequests = 3
 
 var fixedWindowUsers = make(map[string]FixedWindowUser)
 
 var mux = sync.Mutex{}
 
 func GetResource(userId string) bool {
-
+	mux.Lock()
 	if v, found := fixedWindowUsers[userId]; found {
-		mux.Lock()
 		last := v.Last
 		current := time.Now().Unix()
 		if current-last > windowSize {
@@ -30,7 +30,7 @@ func GetResource(userId string) bool {
 			fixedWindowUsers[userId] = fwu
 			mux.Unlock()
 			return true
-		} else if v.Count < 3 {
+		} else if v.Count < allowedRequests {
 			fmt.Println(v)
 			v.Count = v.Count + 1
 			fixedWindowUsers[userId] = v
@@ -44,6 +44,7 @@ func GetResource(userId string) bool {
 	} else {
 		fwu := FixedWindowUser{userId, time.Now().Unix(), 1, windowSize}
 		fixedWindowUsers[userId] = fwu
+		mux.Unlock()
 		return true
 	}
 }

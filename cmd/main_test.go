@@ -25,3 +25,19 @@ func TestFixedWindowShouldBanFourthRequest(t *testing.T) {
     assert.Equal(t, 403, w.Code)
     assert.Equal(t, "\"Too much reqeuests for 123\"", w.Body.String())
 }
+
+func TestSlidingWindowShouldBanFourthRequest(t *testing.T) {
+	r := rt.InitalizeRouter()
+	w := httptest.NewRecorder()
+	req, _ := http.NewRequest("GET", "/resource/slidingwindow/123", nil)
+	r.ServeHTTP(w, req)
+	assert.Equal(t, 200, w.Code)
+    r.ServeHTTP(w, req)
+    assert.Equal(t, 200, w.Code)
+    r.ServeHTTP(w, req)
+    assert.Equal(t, 200, w.Code)
+    w = httptest.NewRecorder()
+    r.ServeHTTP(w, req)
+    assert.Equal(t, 403, w.Code)
+    assert.Equal(t, "\"Too much reqeuests for 123\"", w.Body.String())
+}

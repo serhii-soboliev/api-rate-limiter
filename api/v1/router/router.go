@@ -7,7 +7,9 @@ import (
 
 func InitalizeRouter() *gin.Engine {
 	router := gin.Default()
-	router.GET("/users/fixedwindow", handler.GetFixedWindowUsers)
-	router.GET("/resource/fixedwindow/:userId", handler.GetResource)
+	router.GET("/users/fixedwindow", handler.GetUsersFW)
+	router.GET("/users/slidingwindow", handler.GetUsersSW)
+	router.GET("/resource/fixedwindow/:userId", handler.GetResourceFW)
+	router.GET("/resource/slidingwindow/:userId", handler.GetResourceSW)
 	return router
 }

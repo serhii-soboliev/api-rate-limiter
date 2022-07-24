@@ -1,3 +1,4 @@
 
-get http://localhost:8081/resource/fixedwindow/234
+get http://localhost:8081/resource/slidingwindow/234
+
 
