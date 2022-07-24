@@ -10,7 +10,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestFixedWindow(t *testing.T) {
+func TestFixedWindowShouldBanFourthRequest(t *testing.T) {
 	r := rt.InitalizeRouter()
 	w := httptest.NewRecorder()
 	req, _ := http.NewRequest("GET", "/resource/fixedwindow/123", nil)
