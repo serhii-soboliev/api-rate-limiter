@@ -7,7 +7,7 @@ API Rate limiter service for demonstration purpose
 
 # Design
 
-![General design](https://github.com/SergiySobolev/api-rate-limiter/blob/master/img/general_design.png)
+![General design](https://github.com/SergiySobolev/api-rate-limiter/blob/main/img/general_design.png)
 
 # Prerequisites
 
