@@ -11,5 +11,6 @@ func InitalizeRouter() *gin.Engine {
 	router.GET("/users/slidingwindow", handler.GetUsersSW)
 	router.GET("/resource/fixedwindow/:userId", handler.GetResourceFW)
 	router.GET("/resource/slidingwindow/:userId", handler.GetResourceSW)
+	router.GET("/resource/slidingcounterwindow/:userId", handler.GetResourceSCW)
 	return router
 }

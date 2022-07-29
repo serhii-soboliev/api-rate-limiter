@@ -8,6 +8,7 @@ import (
 
 	fw "com.sbk/api-rate-limiter/pkg/fixedwindow"
 	sw "com.sbk/api-rate-limiter/pkg/slidingwindow"
+	scw "com.sbk/api-rate-limiter/pkg/slidingcounterwindow"
 )
 
 func GetUsersFW(c *gin.Context) {
@@ -32,6 +33,17 @@ func GetUsersSW(c *gin.Context) {
 func GetResourceSW(c *gin.Context) {
 	userId := c.Param("userId")
 	result := sw.GetResource(userId)
+	if result {
+		c.IndentedJSON(http.StatusOK, "Request is allowed for user "+userId)
+	} else {
+		msg := fmt.Sprintf("Too much reqeuests for %s", userId)
+		c.IndentedJSON(http.StatusForbidden, msg)
+	}
+}
+
+func GetResourceSCW(c *gin.Context) {
+	userId := c.Param("userId")
+	result := scw.GetResource(userId)
 	if result {
 		c.IndentedJSON(http.StatusOK, "Request is allowed for user "+userId)
 	} else {
