@@ -11,7 +11,8 @@ API Rate limiter service for demonstration purpose
 
 # Prerequisites
 
-Install GoLang <https://go.dev>
+1. Install GoLang <https://go.dev>
+2. Install Git 
 
 # How to run
 
@@ -20,3 +21,9 @@ Install GoLang <https://go.dev>
 3. go build && go run .
 
 # Algorithms
+
+## [1. Fixed Window](https://dev.to/satrobit/rate-limiting-using-the-fixed-window-algorithm-2hgm)
+
+## [2. Sliding Window](https://dev.to/satrobit/rate-limiting-using-the-fixed-window-algorithm-2hgm)
+
+## 3. Sliding Window with counter
