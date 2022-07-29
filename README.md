@@ -11,8 +11,8 @@ API Rate limiter service for demonstration purpose
 
 # Prerequisites
 
-1. Install GoLang <https://go.dev>
-2. Install Git
+1. [Install GoLang](https://go.dev)
+2. [Install Git](https://git-scm.com/downloads)
 
 # How to run
 
